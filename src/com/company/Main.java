@@ -1,22 +1,16 @@
 package com.company;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add( "joji" );
-        list.add( "xxxtentacion" );
-        list.add( "peep" );
-        list.add( "Ghostmane" );
-        list.add( "boys" );
-        List<String> collect = list.stream()
-                .filter((each)-> each.length() == 4 )
-                .collect( Collectors.toList() );
-        collect.forEach( (each)-> System.out.println(each) );
+        List<String> list = Arrays.asList("5.6", "7.4", "4",
+                "1", "2.3");
+        list.stream().flatMap(num -> Stream.of(num)).
+                forEach(System.out::println);
 
     }
 }
