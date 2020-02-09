@@ -8,13 +8,13 @@ public class Main {
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
-        list.add( "bones" );
+        list.add( "joji" );
         list.add( "xxxtentacion" );
-        list.add( "lil peep" );
+        list.add( "peep" );
         list.add( "Ghostmane" );
-        list.add( "$uicideboy$" );
+        list.add( "boys" );
         List<String> collect = list.stream()
-                .map( (each) -> each.toUpperCase() )
+                .filter((each)-> each.length() == 4 )
                 .collect( Collectors.toList() );
         collect.forEach( (each)-> System.out.println(each) );
 
