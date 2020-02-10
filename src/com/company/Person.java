@@ -3,13 +3,23 @@ package com.company;
 import java.util.Objects;
 
 public class Person {
+    private String name;
     private int age;
 
-    public Person(int age) {
+    public Person(String name, int age) {
+        this.name = name;
         this.age = age;
     }
 
     public Person() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -21,9 +31,11 @@ public class Person {
     }
 
     @Override
-    public String toString() {
+    public String
+    toString() {
         return "Person{" +
-                "age=" + age +
+                "name='" + name + '\'' +
+                ", age=" + age +
                 '}';
     }
 
@@ -32,11 +44,12 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return age == person.age;
+        return age == person.age &&
+                Objects.equals(name, person.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(age);
+        return Objects.hash(name, age);
     }
 }
