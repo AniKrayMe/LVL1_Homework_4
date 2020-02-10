@@ -19,10 +19,16 @@ public class Main {
         people.add(person3);
         people.add(person4);
         people.add(person5);
-        List<Person> collect = people.stream()
+        List<Person> kids = people.stream()
                 .filter((each) -> each.getAge() < 18)
                 .collect(Collectors.toList());
-        collect.forEach((each)-> System.out.println(each));
+        kids.forEach((each)-> System.out.println(" kids  = "+each));
+
+        List<Person> adults = people.stream()
+                .filter((each) -> each.getAge() >= 18)
+                .collect(Collectors.toList());
+        adults.forEach((each)-> System.out.println(" adults   = "+each));
+
 
     }
 }
