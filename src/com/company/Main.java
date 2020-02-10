@@ -2,7 +2,9 @@ package com.company;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -22,12 +24,16 @@ public class Main {
         List<Person> kids = people.stream()
                 .filter((each) -> each.getAge() < 18)
                 .collect(Collectors.toList());
-        kids.forEach((each)-> System.out.println(" kids  = "+each));
 
         List<Person> adults = people.stream()
                 .filter((each) -> each.getAge() >= 18)
                 .collect(Collectors.toList());
-        adults.forEach((each)-> System.out.println(" adults   = "+each));
+
+
+        Map<Boolean, List<Person>> personListByAge = new HashMap<>();
+        personListByAge.put(true, adults);
+        personListByAge.put(false, kids);
+        personListByAge.values().forEach(System.out::println);
 
 
     }
